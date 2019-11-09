@@ -17,11 +17,11 @@ router.get('/:category_name', function (req, res, next) {
   con.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
+    sql = "";
     });
   //Query database to fetch records matching the given category
-  query = "";
 
-  res.send('respond with a resource');
+  res.render('display_results.ejs');
 });
 
 module.exports = router;
