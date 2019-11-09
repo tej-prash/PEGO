@@ -17,7 +17,7 @@ router.get('/:category_name', function(req, res, next) {
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-  });
+    });
   //Query database to fetch records matching the given category
   query="";
   
