@@ -1,5 +1,5 @@
 var express = require('express');
-var mysql=require('mysql');
+var mysql = require('mysql');
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -10,17 +10,17 @@ var con = mysql.createConnection({
 var router = express.Router();
 
 /* GET category listing. */
-router.get('/:category_name', function(req, res, next) {
-  var category=req.params['category_name'];
+router.get('/:category_name', function (req, res, next) {
+  var category = req.params['category_name'];
 
   //Setup a connection
-  con.connect(function(err) {
+  con.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
     });
   //Query database to fetch records matching the given category
-  query="";
-  
+  query = "";
+
   res.send('respond with a resource');
 });
 
