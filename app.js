@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser=require('body-parser')
 
 var indexRouter = require('./routes/index');
 var categoryRouter = require('./routes/view_category');
@@ -14,10 +15,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
+
+//To treat incoming request data as JSON data
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json())
 
 app.use('/', indexRouter);
 app.use('/category', categoryRouter);
@@ -41,5 +45,4 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 
 
-
-app.listen(3000)
+app.listen(3000);

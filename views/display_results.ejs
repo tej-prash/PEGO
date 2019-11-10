@@ -8,13 +8,16 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Shop Homepage - Start Bootstrap Template</title>
+  <title>Results for <%= category_name %></title>
 
   <!-- Bootstrap core CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <!-- Custom styles for this template -->
-  <link href="./stylesheets/display_results.css" rel="stylesheet">
+  <link href="../stylesheets/display_results.css" rel="stylesheet">
+
 
 </head>
 
@@ -31,16 +34,18 @@
       <div class="col-lg-9">
 
         <div class="row">
-            <% for(var i=0; i < data.length; i++) { %>
+            <% for(var i=0; i < data.length; i++) { 
+                img_url="http://localhost:3000/images/"+data[i].picture_url.slice(1)+"/1.jpg"; 
+                %>
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <a href="#"><img class="card-img-top" src='<%= img_url %>' width="200" height="200"></a>
               <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item One</a>
+                <h4 class="card-title" id='<%= data[i].product_id %>'>
+                  <a href="/viewProduct?product_id=<%= data[i].product_id %>"> <%= data[i].name %></a>
                 </h4>
-                <h5>$24.99</h5>
-                <p class="card-text"> <% data.description %> </p>
+                <h5><%= data[i].cost %></h5>
+                <p class="card-text"> <%= data[i].description %> </p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
