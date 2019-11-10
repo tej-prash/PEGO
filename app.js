@@ -2,10 +2,12 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var logger = require('morgan');
 var bodyParser=require('body-parser')
 
 var indexRouter = require('./routes/index');
+var sellRouter = require('./routes/sell_items')
 var categoryRouter = require('./routes/view_category');
 
 var app = express();
@@ -25,6 +27,7 @@ app.use(bodyParser.json())
 
 app.use('/', indexRouter);
 app.use('/category', categoryRouter);
+app.use('/', sellRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
