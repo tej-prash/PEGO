@@ -1,21 +1,9 @@
 var express = require('express');
 var mysql = require('mysql');
+var con = require('../dbconfig');
 
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "sumSVR@1",
-    database: "pego",
-    port: 3306
-});
 var router = express.Router();
 
-//Setup a connection
-con.connect(function (err) {
-    if (err) throw err;
-    console.log("Connected!");
-    sql = "";
-});
 
 /* GET Sell Page*/
 router.get('/sell', function (req, res, next) {
