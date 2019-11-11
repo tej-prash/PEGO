@@ -46,6 +46,19 @@ router.post('/login',function(req,res,next) {
   });
 });
 
+/* Logout */
+router.get('/logout',function(req,res,next) {
+  req.session.destroy((err)=>{
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.redirect("/");  
+    }
+  });
+
+
+});
 
 /* View details of items page */
 router.get('/viewProduct',function(req,res,next){
