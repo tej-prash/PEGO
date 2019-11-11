@@ -12,10 +12,10 @@ function validatePassword(event){
             cache: false,
             statusCode:{
                 200:function(){
-                    console.log("SUccess!");
+                    window.location.href="/";
                 },
                 204:function(){
-                    console.log("Failed to login. Wrong password!");
+                    document.getElementById("password_prompt").style.display="block";
                 }
             }
         })

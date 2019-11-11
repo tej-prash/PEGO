@@ -10,9 +10,16 @@ router.get('/', function (req, res, next) {
       if (error) {
           return console.error(error.message);
       }
-      res.render('index', {
-        page: 'Home', menuId: 'home', data:results
-      });
+      if(req.session.name){
+        res.render('index', {
+          page: 'Home', menuId: 'home', data:results,name:req.session.name
+        });
+      }
+      else{
+        res.render('index', {
+          page: 'Home', menuId: 'home', data:results,name:null
+        });
+      }
   });
 });
 
@@ -21,7 +28,7 @@ router.post('/login',function(req,res,next) {
   // console.log(req.body);
   var email=req.body.email_id;
   var password=req.body.password;
-  let sql="select pw from users where email_id='"+email+"'";
+  let sql="select pw,fullname from users where email_id='"+email+"'";
   con.query(sql, (error, results, fields) => {
     if (error) {
         return console.error(error.message);
@@ -29,7 +36,9 @@ router.post('/login',function(req,res,next) {
     console.log(results);
       var pw=results[0].pw;
       if(pw==password){
+        req.session.name=results[0].fullname;
         res.status(200).send("SUccess!");
+        
       }
       else{
         res.status(204).send("Failed");

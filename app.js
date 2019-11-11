@@ -4,7 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
-var bodyParser=require('body-parser')
+var bodyParser=require('body-parser');
+const session=require('express-session'); 
 
 var indexRouter = require('./routes/index');
 var sellRouter = require('./routes/sell_items')
@@ -24,6 +25,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json())
+
+/* Create a session */
+app.use(session({secret:'ssshhh',saveUninitialized:true,resave:true}))
 
 app.use('/', indexRouter);
 app.use('/category', categoryRouter);
