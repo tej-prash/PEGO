@@ -17,7 +17,7 @@
                     <li class="breadcrumb-item active" style="font-size: 30px;color:black;">Sell Items</li>
                 </ol>
 
-                <form class="form-horizontal" action="/sell" method="post">
+                <form class="form-horizontal" action="/sell" method="post" enctype="multipart/form-data">
 
                     <div class="input-group mb-3 col-sm-8">
                         <div class="input-group-prepend">
@@ -55,7 +55,7 @@
                         </div>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                aria-describedby="inputGroupFileAddon01">
+                                aria-describedby="inputGroupFileAddon01" name="filetoupload">
                             <label class="custom-file-label" for="inputGroupFile01"></label>
                         </div>
                     </div>

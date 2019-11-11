@@ -6,8 +6,9 @@ var con = mysql.createConnection({
   port: 3306,
   database:'pego'
 });
+
  //Setup a connection
- con.connect(function (err) {
+ con.connect(function (req, res, err) {
   if (err){
     res.status(400).send('Error in connecting');
   }
