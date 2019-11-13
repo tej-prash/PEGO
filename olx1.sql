@@ -67,7 +67,7 @@ create table  users
 DROP TABLE IF EXISTS `USERADDRESS`;
 create table useraddress
 	(
-		`user_id` varchar(20) ,
+		`user_id` varchar(20) primary key,
 		`flat_no` varchar(10),
 		`street_name` varchar(20),
 		`locality` varchar(20),
@@ -89,11 +89,9 @@ DROP TABLE IF EXISTS `payment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `payment` (
-  `paymentid` varchar(20) NOT NULL,
-  `paymenttype` varchar(45) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `paymentcol` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`paymentid`)
+  `paymentid` int NOT NULL AUTO_INCREMENT,
+  `paymenttype` varchar(45) NOT NULL,
+   PRIMARY KEY (`paymentid`)
 );
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -153,7 +151,7 @@ CREATE TABLE `order` (
   `order_id` varchar(20) NOT NULL,
   `productid` varchar(20) NOT NULL,
   `cust_id` varchar(20) NOT NULL,
-  `paymentid` varchar(20) NOT NULL,
+  `paymentid` int NOT NULL,
   `shipdate` timestamp ,
   `total_amount` varchar(45) DEFAULT NULL,
   `time_of_order` timestamp ,
@@ -161,7 +159,7 @@ CREATE TABLE `order` (
   KEY `productid_idx` (`productid`),
   KEY `custid_idx` (`cust_id`),
   KEY `paymentid_idx` (`paymentid`),
-  CONSTRAINT `cust_id` FOREIGN KEY (`cust_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `cust_id` FOREIGN KEY (`cust_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `paymentid` FOREIGN KEY (`paymentid`) REFERENCES `payment` (`paymentid`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `productid` FOREIGN KEY (`productid`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE
 );

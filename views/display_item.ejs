@@ -10,17 +10,17 @@
 
 
   <!-- Bootstrap core CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- Custom styles for this template -->
   <link href="../stylesheets/display_item.css" rel="stylesheet">
+  <script src="../javascripts/display_item.js"></script>
 
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <% include partials/menu %>
 
   <!-- Page Content -->
   <div class="container">
@@ -29,15 +29,15 @@
 
       <!-- /.col-lg-3 -->
 
-      <div class="col-lg-9">
+      <div class="col-md-8">
 
         <div class="card mt-4">
-            <% var img_url="http://localhost:3000/images/"+data.picture_url.slice(1)+"/1.jpg"   %>
+            <% var img_url="http://localhost:3000/images/"+product_info.picture_url.slice(1)+"/1.jpg"   %>
           <img class="card-img-top img-fluid" src='<%= img_url %>' alt="">
           <div class="card-body">
-            <h3 class="card-title"> <%= data.name %> </h3>
-            <h4><%= data.cost %></h4>
-            <p class="card-text"><%= data.description %></p>
+            <h3 class="card-title"> <%= product_info.name %> </h3>
+            <h4><%= product_info.cost %></h4>
+            <p class="card-text"><%= product_info.description %></p>
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
           </div>
         </div>
@@ -50,7 +50,7 @@
                 <div class="card-body">
                     <ul class="list-group">
                     <% 
-                        var features=data.features.split(";");
+                        var features=product_info.features.split(";");
                         for(var i=0;i < features.length; i++){
                     %>
                         <li class="list-group-item"><%= features[i] %></li>
@@ -81,6 +81,21 @@
       </div>
       <!-- /.col-lg-9 -->
 
+       <!-- Side Widget -->
+       <div class="col-md-4">
+          <div class="card my-4">
+            <h5 class="card-header">Details of owner</h5>
+            <div class="card-body">
+                <p>Name: <%= owner_info.fullname %></p>
+                <p>Email: <%= owner_info.email_id %></p>
+                <p>Rating: <%= owner_info.rating %>/5</p>
+            </div>
+              <button type="submit" class="btn btn-primary btn-small"><a id="submit_id" onclick="validateOrder(event)" href="#" style="color:white">Pay and Order</a></button>
+              <h1 style="display: none" id="prod_id"><%= product_info.product_id %></h1>
+              <h7 class="text-center" style="display: none;color: brown" id="error_prompt">*Cannot place order</h7>
+            </div>
+       </div>
+
     </div>
 
   </div>
@@ -96,7 +111,7 @@
 
   <!-- Bootstrap core JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 

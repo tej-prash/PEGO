@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../stylesheets/confirmationPage.css">
+        <link rel="stylesheet" href="../stylesheets/font_loginPage.css">
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../javascripts/confirmationPage.js"></script>
+    </head>
+    <body>
+        <section class="pricing py-5">
+        <div class="container">
+            <div class="row">
+            <!-- Free Tier -->
+            <div class="col-lg-4">
+                <div class="card mb-5 mb-lg-0">
+                <div class="card-body">
+                        <h6 class="card-price text-center" name="amount">Order Summary</h6>
+                        <input type="text" id="prod_id" style="display: none" value="<%= product_info.product_id %>">
+                        <hr>
+                        <ul class="fa-ul">
+                        <li><span class="fa-li"></span>Name: <%= product_info.name %></li>
+                        <li><span class="fa-li"></span>Description: <%= product_info.description %></li>
+                        <li><span class="fa-li"></span>Base Cost: INR <%= product_info.cost %></li>
+                        <li><span class="fa-li"></span>Tariff: INR <%= 0.001*parseFloat(product_info.cost) %></li>
+                        <input type="text" id="total_amount" style="display: none" value="<%= product_info.amount %>">Total amount: INR <%= product_info.amount %>
+
+                        </ul>
+                        <input type="button" class="btn btn-block btn-primary text-uppercase" value="Confirm Order" onclick="submitForm()">
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -10,6 +10,7 @@ const session=require('express-session');
 var indexRouter = require('./routes/index');
 var sellRouter = require('./routes/sell_items')
 var categoryRouter = require('./routes/view_category');
+var orderRouter=require('./routes/make_order')
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use(session({secret:'ssshhh',saveUninitialized:true,resave:true}))
 app.use('/', indexRouter);
 app.use('/category', categoryRouter);
 app.use('/', sellRouter);
+app.use('/',orderRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
