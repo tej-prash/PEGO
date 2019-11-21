@@ -1,13 +1,17 @@
-function validatePassword(event){
+function validateUser(event){
     event.preventDefault();
     console.log("validatePassword called");
     var email=document.getElementById("inputEmail").value;
     var pw=document.getElementById("inputPassword").value;
-    params={email_id:email,password:pw};
+    var fullname=document.getElementById("fullname").value;
+    var username=document.getElementById("username").value;
+    var phone=document.getElementById("phone").value;
+    var gender=document.getElementById("gender").value
+    params={email_id:email,password:pw,fullname:fullname,username:username,phone:phone,gender:gender};
     $(document).ready(function(){
         $.ajax({
             type: "POST",
-            url: "/login",
+            url: "/register",
             data: params,
             cache: false,
             statusCode:{

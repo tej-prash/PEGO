@@ -12,13 +12,17 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
   <!-- Custom styles for this template -->
   <link href="../stylesheets/display_item.css" rel="stylesheet">
   <script src="../javascripts/display_item.js"></script>
+  <script src="../javascripts/display_map.js"></script>
 
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkKbYe0Bw1zHKebcEmtUp45m4jT_h51WQ"> </script>
 </head>
 
-<body>
+<body onload="start()">
 
   <!-- Navigation -->
 
@@ -86,6 +90,7 @@
           <div class="card my-4">
             <h5 class="card-header">Details of owner</h5>
             <div class="card-body">
+                <p id="userid" style="display: none"><%= owner_info.user_id %></p>
                 <p>Name: <%= owner_info.fullname %></p>
                 <p>Email: <%= owner_info.email_id %></p>
                 <p>Rating: <%= owner_info.rating %>/5</p>
@@ -93,11 +98,16 @@
               <button type="submit" class="btn btn-primary btn-small"><a id="submit_id" onclick="validateOrder(event)" href="#" style="color:white">Pay and Order</a></button>
               <h1 style="display: none" id="prod_id"><%= product_info.product_id %></h1>
               <h7 class="text-center" style="display: none;color: brown" id="error_prompt">*Cannot place order</h7>
-            </div>
-       </div>
+          </div>
 
+       <div class="card my-4">
+          <h5 class="card-header">Location</h5>
+          <div class="card-body" id="map">
+
+          </div>
+        </div>
     </div>
-
+    </div>
   </div>
   <!-- /.container -->
 

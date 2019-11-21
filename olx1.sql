@@ -73,8 +73,8 @@ create table useraddress
 		`locality` varchar(20),
 		`city` varchar(20),
 		`state` varchar(20),
-		`country` varchar(20),
 		`zip_code` varchar(10),
+    `country` varchar(20),
 		foreign key(user_id) references `users`(user_id) on delete cascade on update cascade
 	);
 /*!40101 SET character_set_client = @saved_cs_client */;

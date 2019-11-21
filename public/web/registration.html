@@ -14,7 +14,7 @@
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
           <div class="card card-signin my-5">
             <div class="card-body">
-              <h5 class="card-title text-center">Sign In</h5>
+              <h5 class="card-title text-center">Register</h5>
               <form class="form-signin" action="#">
                 <div class="form-label-group">
                   <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required autofocus>
@@ -22,13 +22,34 @@
                 </div>
 
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
-                  <label for="inputPassword">Password</label>
+                    <input type="text" id="fullname" class="form-control" name="fullname" placeholder="Full Name" required>
+                    <label for="fullname">Fullname</label>
                 </div>
 
-                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick="validatePassword(event)">Sign in</button>
+                <div class="form-label-group">
+                    <input type="text" id="username" class="form-control" name="username" placeholder="User Name" required>
+                    <label for="username">Username</label>
+                </div>
+
+
+                <div class="form-label-group">
+                    <input type="text" id="phone" class="form-control" name="phone" placeholder="Phone number" required>
+                    <label for="phone">Phone number</label>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="text" id="gender" class="form-control" name="gender" placeholder="M/F" required>
+                    <label for="phone">Gender</label>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+                    <label for="inputPassword">Password</label>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick="validateUser(event)">Register</button>
                 <h7 class="text-center" style="display: none;color: brown" id="password_prompt">*Please enter password again</h7>
-                <h7 class="text-center" style="display: none;color: brown" id="register_prompt"><a href="http://localhost:3000/web/registration.html">*Register</a></h7>
+                <h7 class="text-center" style="display: none;color: brown" id="register_prompt"><a href="/register">*Register</a></h7>
               </form>
             </div>
           </div>

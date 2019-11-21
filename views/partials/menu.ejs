@@ -58,8 +58,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <% for(var i=0; i < data.length; i++) { %>
-            <a class="dropdown-item" href="http://localhost:3000/category/<%= data[i].name %>"><%= data[i].name.charAt(0).toUpperCase()+data[i].name.slice(1) %></a>
-          <% } %>
+            <a class="dropdown-item" href="http://localhost:3000/category/displaycatname/<%= data[i].name %>"><%= data[i].name.charAt(0).toUpperCase()+data[i].name.slice(1) %></a>
+            <% } %>
         </div>
       </li>
       <li class="nav-item">
