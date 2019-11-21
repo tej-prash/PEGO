@@ -74,7 +74,7 @@ router.post('/:category_name', function (req, res, next) {
           category_id=res1[0].category_id;
           console.log(category_id);
           //Query database to fetch 2 products matching a particular category
-          sql2 = "SELECT * FROM PRODUCT WHERE CATEGORY_ID='"+category_id+"' AND available_flag=1 LIMIT "+count+",2";
+          sql2 = "SELECT * FROM PRODUCT WHERE CATEGORY_ID='"+category_id+"' AND available_flag=1 LIMIT "+count+",5";
           con.query(sql2,this);
       }
     },

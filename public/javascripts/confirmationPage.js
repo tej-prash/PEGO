@@ -15,7 +15,7 @@ function submitForm(event){
             statusCode:{
                 200:function(){
                     console.log("Order successfull!");
-                    window.location.href="/";
+                    window.location.href="http://localhost:3000/web/orderSuccess.html";
                 },
                 204:function(){
                     console.log("Order not successfull!");
