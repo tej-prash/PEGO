@@ -62,7 +62,7 @@ router.get('/confirmOrder',function(req,res,next){
                 }
                 else{
                     var prod=results[0];
-                    prod.amount=(parseFloat(prod.cost)-parseFloat(prod.discount))*1.1
+                    prod.amount=(parseFloat(prod.cost)-parseFloat(prod.discount))*1.01
                     res.render('confirmationPage',{product_info:prod});
                 }
             }

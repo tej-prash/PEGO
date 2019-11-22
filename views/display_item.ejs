@@ -20,6 +20,14 @@
   <script src="../javascripts/display_map.js"></script>
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkKbYe0Bw1zHKebcEmtUp45m4jT_h51WQ"> </script>
+
+  <script>
+    function start()
+    {
+      setTimeout(showimg, 1000);
+    }
+  </script>
+
 </head>
 
 <body onload="start()">
@@ -36,8 +44,11 @@
       <div class="col-md-8">
 
         <div class="card mt-4">
-            <% var img_url="http://localhost:3000/images/"+product_info.picture_url.slice(1)+"/1.jpg"   %>
-          <img class="card-img-top img-fluid" src='<%= img_url %>' alt="">
+          <div style="display: none;"><% var img_url="http://localhost:3000/images/"+product_info.picture_url.slice(1)+"/1.jpg" %></div>
+          <div style="display: none" id="product"><%= img_url %></div>
+          <div id="actualimage"></div>
+            <!-- <img class="card-img-top img-fluid" src='<%= img_url %>' alt=""> -->
+          
           <div class="card-body">
             <h3 class="card-title"> <%= product_info.name %> </h3>
             <h4><%= product_info.cost %></h4>
@@ -63,7 +74,7 @@
                 </div>
         </div>
 
-        <div class="card card-outline-secondary my-4">
+        <!-- <div class="card card-outline-secondary my-4">
           <div class="card-header">
             Product Reviews
           </div>
@@ -80,7 +91,7 @@
             <a href="#" class="btn btn-success">Leave a Review</a>
           </div>
         </div>
-        <!-- /.card -->
+        /.card -->
 
       </div>
       <!-- /.col-lg-9 -->

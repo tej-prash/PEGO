@@ -1,4 +1,19 @@
-function start(){
+function showimg()
+{
+    var x = document.getElementById("product");
+    var path = x.innerHTML;
+
+    var image = document.createElement("img");
+    image.class = "card-img-top img-fluid";
+    image.src = path;
+
+    var d = document.getElementById("actualimage");
+    d.appendChild(image);
+
+    setTimeout(functionmap, 2000);
+}
+
+function functionmap(){
     var API_KEY="cabab5e2ac8f4186a3f0a39732954ada";
     // var geocoder = new google.maps.Geocoder();
     //Get user address
